@@ -1,5 +1,22 @@
 <!doctype html>
 <html lang="hu">
+<style>
+/* iOS kattintási bug javítása checkboxokra */
+input[type="checkbox"] {
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 10;
+  transform: scale(1.2);
+}
+
+label {
+  pointer-events: auto !important;
+}
+
+.task, .task-row, .item {
+  pointer-events: auto;
+}
+</style>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -149,4 +166,5 @@ $$("nav button").forEach(b=>b.onclick=()=>{
 render();
 </script>
 </body>
+
 </html>
