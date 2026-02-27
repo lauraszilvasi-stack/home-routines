@@ -98,7 +98,11 @@ const $ = (q)=>document.querySelector(q);
 const $$ = (q)=>document.querySelectorAll(q);
 
 let data = JSON.parse(localStorage.getItem("flylady-data")||"null") || {
-  daily:{morning:["Beágyazni mindkét szobában", "Reggelizni, D vitamin", "2 perc kritikus terület","Mosogató", "kis fürdőben WC turbó törlés", "Nézz rá a naptárra és a to do listára", "Kell-e ma mosni?", "Felöltözni, fogat mosni, sminkelni", "Fésülködni, arckrém, sarokkrém"], day:["1 Hot Spot"], evening:["Ruhák előkészítése"]},
+  daily:{morning:["Beágyazni mindkét szobában", "Reggelizni, D vitamin", "2 perc kritikus terület", "Mosogató",
+                  "kis fürdőben WC turbó törlés", "Nézz rá a naptárra és a to do listára", "Kell-e ma mosni?",
+                  "Felöltözni, fogat mosni, sminkelni", "Fésülködni, arckrém, sarokkrém"],
+         day:["15 perc szanálás"],
+         evening:["Ruhák előkészítése"]},
   weekly:["Heti tervezés","Hűtő átnézése"],
   zones:[
     {name:"Zóna 1 – Előszoba + nappali", tasks:[{t:"Padló felmosása", last:null, note:""}]},
@@ -196,6 +200,7 @@ document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
 </body>
 
 </html>
+
 
 
 
