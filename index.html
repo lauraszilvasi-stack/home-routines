@@ -102,14 +102,17 @@ let data = JSON.parse(localStorage.getItem("flylady-data")||"null") || {
                   "kis fürdőben WC turbó törlés", "Nézz rá a naptárra és a to do listára", "Kell-e ma mosni?",
                   "Felöltözni, fogat mosni, sminkelni", "Fésülködni, arckrém, sarokkrém"],
          day:["15 perc szanálás"],
-         evening:["Ruhák előkészítése"]},
-  weekly:["Heti tervezés","Hűtő átnézése"],
+         evening:["2 perc kritikus terület", "Mosogató", "nagy fürdőben WC turbó törlés", "Nézz rá a naptárra és a to do listára",
+                  "Ruhák előkészítése", "fogmosás, fésülködés, krém"]},
+  weekly:["Táskám átnézése",],
   zones:[
-    {name:"Zóna 1 – Előszoba + nappali", tasks:[{t:"Padló felmosása", last:null, note:""}]},
+    {name:"Zóna 1 – Előszoba + nappali", tasks:[{t:"Porsziv", "Felmos", "Ajto lemos", "Bútor alól kosz kiszed", 
+                                                 "Szekrények átnézése", "Cipős polcok letörlése", "Szekrényajtók letörlése", 
+                                                 "Ruhák akasztókon átnézése", "Pókok, kapcsolók", last:null, note:""}]},
     {name:"Zóna 2 – Étkező", tasks:[{t:"Függöny mosása", last:null, note:""}]},
-    {name:"Zóna 3", tasks:[]},
-    {name:"Zóna 4", tasks:[]},
-    {name:"Zóna 5", tasks:[]},
+    {name:"Zóna 3" - , tasks:[{t:"Függöny mosása", last:null, note:""}]},
+    {name:"Zóna 4" - , tasks:[{t:"Függöny mosása", last:null, note:""}]},
+    {name:"Zóna 5" - , tasks:[{t:"Függöny mosása", last:null, note:""}]},
   ],
   todo:[]
 };
@@ -200,3 +203,4 @@ document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
 </body>
 
 </html>
+
