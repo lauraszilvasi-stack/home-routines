@@ -16,6 +16,18 @@ label {
 .task, .task-row, .item {
   pointer-events: auto;
 }
+/* Checkbox fix iOS WebApp-hoz */
+input[type="checkbox"] {
+  position: relative;
+  z-index: 1000 !important; /* legfelülre */
+  pointer-events: auto !important;
+  transform: scale(1.5);      /* nagyobb, könnyebben érinthető */
+}
+label {
+  pointer-events: auto !important;
+  display: inline-block;
+  cursor: pointer;
+}  
 </style>
 <head>
 <meta charset="utf-8">
@@ -173,8 +185,16 @@ document.addEventListener('click', function(e) {
     el.checked = !el.checked; // állítsa a pipát
   }
 }, true);
-</script>
+// iOS biztos pipálás
+document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+  cb.addEventListener('touchstart', e => {
+    cb.checked = !cb.checked;
+    e.preventDefault();
+  });
+});
+</script> 
 </body>
 
 </html>
+
 
