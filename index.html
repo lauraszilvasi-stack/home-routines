@@ -1,7 +1,11 @@
 <!doctype html>
 <html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saját FlyLady App</title>
 <style>
-/* iOS kattintási bug javítása checkboxokra */
+  /* iOS kattintási bug javítása checkboxokra */
 input[type="checkbox"] {
   pointer-events: auto !important;
   position: relative;
@@ -16,24 +20,6 @@ label {
 .task, .task-row, .item {
   pointer-events: auto;
 }
-/* Checkbox fix iOS WebApp-hoz */
-input[type="checkbox"] {
-  position: relative;
-  z-index: 1000 !important; /* legfelülre */
-  pointer-events: auto !important;
-  transform: scale(1.5);      /* nagyobb, könnyebben érinthető */
-}
-label {
-  pointer-events: auto !important;
-  display: inline-block;
-  cursor: pointer;
-}  
-</style>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Saját FlyLady App</title>
-<style>
 body { font-family: system-ui, -apple-system, Arial; margin:0; background:#f5f6f7; }
 nav { display:flex; gap:6px; padding:8px; background:#fff; position:sticky; top:0; border-bottom:1px solid #ddd; }
 nav button { flex:1; padding:10px; border:0; border-radius:8px; background:#eee; }
@@ -45,6 +31,18 @@ section.active { display:block; }
 .zone-active { border-left:6px solid #4f7cff; padding-left:6px; }
 .badge { font-size:12px; padding:2px 6px; border-radius:6px; background:#e8f0ff; }
 .timer button{margin-right:6px;}
+  /* Checkbox fix iOS WebApp-hoz */
+input[type="checkbox"] {
+  position: relative;
+  z-index: 1000 !important; /* legfelülre */
+  pointer-events: auto !important;
+  transform: scale(1.5);      /* nagyobb, könnyebben érinthető */
+}
+label {
+  pointer-events: auto !important;
+  display: inline-block;
+  cursor: pointer;
+}
 </style>
 </head>
 <body>
@@ -98,21 +96,14 @@ const $ = (q)=>document.querySelector(q);
 const $$ = (q)=>document.querySelectorAll(q);
 
 let data = JSON.parse(localStorage.getItem("flylady-data")||"null") || {
-  daily:{morning:["Beágyazni mindkét szobában", "Reggelizni, D vitamin", "2 perc kritikus terület", "Mosogató",
-                  "kis fürdőben WC turbó törlés", "Nézz rá a naptárra és a to do listára", "Kell-e ma mosni?",
-                  "Felöltözni, fogat mosni, sminkelni", "Fésülködni, arckrém, sarokkrém"],
-         day:["15 perc szanálás"],
-         evening:["2 perc kritikus terület", "Mosogató", "nagy fürdőben WC turbó törlés", "Nézz rá a naptárra és a to do listára",
-                  "Ruhák előkészítése", "fogmosás, fésülködés, krém"]},
-  weekly:["Táskám átnézése"],
+  daily:{morning:["Ágy beágyazása","Mosogató rendbetétele"], day:["1 Hot Spot"], evening:["Ruhák előkészítése"]},
+  weekly:["Heti tervezés","Hűtő átnézése"],
   zones:[
-    {name:"Zóna 1 – Előszoba + nappali", tasks:[{t:"Porsziv", "Felmos", "Ajto lemos", "Bútor alól kosz kiszed", 
-                                                 "Szekrények átnézése", "Cipős polcok letörlése", "Szekrényajtók letörlése", 
-                                                 "Ruhák akasztókon átnézése", "Pókok, kapcsolók", last:null, note:""}]},
+    {name:"Zóna 1 – Előszoba + nappali", tasks:[{t:"Padló felmosása", last:null, note:""}]},
     {name:"Zóna 2 – Étkező", tasks:[{t:"Függöny mosása", last:null, note:""}]},
-    {name:"Zóna 3 - Nappali", tasks:[{t:"Függöny mosása", last:null, note:""}]},
-    {name:"Zóna 4 - Konyha", tasks:[{t:"Függöny mosása", last:null, note:""}]},
-    {name:"Zóna 5 - Gardrób, Fedett terasz", tasks:[{t:"Függöny mosása", last:null, note:""}]},
+    {name:"Zóna 3", tasks:[]},
+    {name:"Zóna 4", tasks:[]},
+    {name:"Zóna 5", tasks:[]},
   ],
   todo:[]
 };
@@ -184,7 +175,7 @@ $$("nav button").forEach(b=>b.onclick=()=>{
 });
 render();
 </script>
-<script>
+  <script>
 // iOS checkbox tap fix
 document.addEventListener('click', function(e) {
   const el = e.target;
@@ -192,6 +183,8 @@ document.addEventListener('click', function(e) {
     el.checked = !el.checked; // állítsa a pipát
   }
 }, true);
+</script>
+  <script>
 // iOS biztos pipálás
 document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
   cb.addEventListener('touchstart', e => {
@@ -199,9 +192,6 @@ document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
     e.preventDefault();
   });
 });
-</script> 
+</script>
 </body>
-
 </html>
-
-
