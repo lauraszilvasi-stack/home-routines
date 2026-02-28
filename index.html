@@ -6,21 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Saját FlyLady App</title>
   <style>
-/* iOS kattintási bug javítása checkboxokra */
-input[type="checkbox"] {
-  pointer-events: auto !important;
-  position: relative;
-  z-index: 10;
-  transform: scale(1.2);
-}
-
-label {
-  pointer-events: auto !important;
-}
-
-.task, .task-row, .item {
-  pointer-events: auto;
-}
 /* Checkbox fix iOS WebApp-hoz */
 input[type="checkbox"] {
   position: relative;
@@ -197,4 +182,5 @@ document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
 </body>
 
 </html>
+
 
